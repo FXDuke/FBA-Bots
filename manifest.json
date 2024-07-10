@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "FBA Bots",
+    "description": "Automatically Report Bots",
+    "version": "0.0.0.20",
+    "permissions": ["activeTab", "storage", "tabs", "scripts"],
+    "action": {
+      "default_popup": "main.html",
+      "default_icon": "resources/logo.png"
+    },
+    "content_scripts": [
+        {
+          "matches": ["*://*.youtube.com/*"],
+          "js": ["scripts/content.js"],
+          "run_at": "document_idle"
+        }
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    }
+  }
